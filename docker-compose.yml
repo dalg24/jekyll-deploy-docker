@@ -12,6 +12,9 @@ services:
       - 35729:35729
       - 3000:3000
 #      -   80:4000
+    environment:
+      - JEKYLL_UID=$JEKYLL_UID
+      - JEKYLL_GID=$JEKYLL_GID
 volumes:
   bundle:
     external:
