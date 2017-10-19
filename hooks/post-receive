@@ -1,0 +1,11 @@
+#!/bin/bash
+
+GIT_REPO=/home/cades/jekyll.git
+JEKYLL_DEPLOY_DOCKER=/home/cades/jekyll-deploy-docker
+TMP_GIT_CLONE=$JEKYLL_DEPLOY_DOCKER/tmp
+
+git clone $GIT_REPO $TMP_GIT_CLONE
+cd $JEKYLL_DEPLOY_DOCKER
+THEME=tmp docker-compose run --rm site jekyll build -d /var/www
+rm -Rf $TMP_GIT_CLONE
+exit
