@@ -1,0 +1,21 @@
+version: '3'
+services:
+  site:
+    command: jekyll serve
+    image: jekyll/jekyll:latest
+    volumes:
+      - $PWD/$THEME:/srv/jekyll
+      - bundle:/usr/local/bundle
+      - www:/var/www
+    ports:
+      - 4000:4000
+      - 35729:35729
+      - 3000:3000
+#      -   80:4000
+volumes:
+  bundle:
+    external:
+      name: jekyll_bundle
+  www:
+    external:
+      name: jekyll_www
